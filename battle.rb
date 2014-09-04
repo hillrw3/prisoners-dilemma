@@ -43,13 +43,23 @@ class Yourclass
   end
 
   def name
-    "Name"
+    "Rob"
   end
 
   def choice(record, cooperate_score, defect_score, win_score, lose_score)
     #Code Starts Here!!!
 
+    cooperate =  true
 
+    if record.last(4) == cooperate_score
+      cooperate = false
+    elsif record.last(2) == lose_score
+      cooperate = false
+    elsif record.last == defect_score
+      cooperate = true
+    end
+
+    cooperate
 
 
 
@@ -64,7 +74,7 @@ def fight
 
   #-------Enter combatants!------
   player_one = Yourclass.new
-  player_two = Devil.new
+  player_two = Moses.new
   #------------------------------
 
   player_one_record = []
@@ -72,9 +82,9 @@ def fight
   round = 0
 
   # Scoring!
-  cooperate_score = 3
-  defect_score = -4
-  win_score = 7
+  cooperate_score = 6
+  defect_score = -17
+  win_score = 3
   lose_score = -1
 
   while round < 100
